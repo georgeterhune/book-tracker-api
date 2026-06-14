@@ -16,6 +16,14 @@ public class BookService {
         return bookRepository.findAll();
     }
 
+    public Book getBookById(Long id) {
+        Optional<Book> existing = bookRepository.findById(id);
+        if (existing.isPresent()) {
+            return existing.get();
+        }
+        throw new BookNotFoundException("Book not found");
+    }
+
     public Book createBook(Book book) {
         return bookRepository.save(book);
     }
@@ -42,5 +50,9 @@ public class BookService {
         } else {
             throw new BookNotFoundException("Book not found");
         }
+    }
+
+    public List<Book> getBooksByStatus(BookStatus status) {
+        return bookRepository.findByStatus(status);
     }
 }
