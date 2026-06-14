@@ -14,3 +14,7 @@ A RESTful API built with Spring Boot for tracking books and reading status.
 - POST /books — add a new book
 - PUT /books/{id} — update a book
 - DELETE /books/{id} — delete a book
+
+## Changelog
+- **June 10, 2026** — Initial CRUD API with H2 + JPA
+- **June 13, 2026** — Custom exception handling, GET by ID, filter by status
