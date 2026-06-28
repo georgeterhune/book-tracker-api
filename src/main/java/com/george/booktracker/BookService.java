@@ -2,6 +2,7 @@ package com.george.booktracker;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,4 +56,13 @@ public class BookService {
     public List<Book> getBooksByStatus(BookStatus status) {
         return bookRepository.findByStatus(status);
     }
+
+    // I will need to get more comfortable with Steams Syntax
+    public List<Book> getCompletedBooks() {
+        return bookRepository.findAll()
+                .stream()
+                .filter(b -> b.getStatus() == BookStatus.COMPLETED)
+                .collect(Collectors.toList());
+    }
+
 }
