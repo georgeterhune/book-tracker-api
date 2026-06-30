@@ -65,4 +65,11 @@ public class BookService {
                 .collect(Collectors.toList());
     }
 
+    public List<String> getBookSummaries() {
+        return bookRepository.findAll()
+                .stream()
+                .map(b -> b.getTitle() + " by " + b.getAuthor())
+                .collect(Collectors.toList());
+    }
+
 }

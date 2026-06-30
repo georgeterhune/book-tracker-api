@@ -40,6 +40,11 @@ public class BookController {
         return bookService.getCompletedBooks();
     }
 
+    @GetMapping("/summaries")
+    public List<String> getBookSummaries() {
+        return bookService.getBookSummaries();
+    }
+
     @PostMapping
     public Book createBook(@RequestBody Book book) {
         return bookService.createBook(book);
